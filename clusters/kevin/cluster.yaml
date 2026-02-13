@@ -1,20 +1,22 @@
 kind: Cluster
-name: kevin
+name: cloudnativegroningen
 kubernetes:
   version: v1.35.0
 talos:
   version: v1.12.3
+features:
+  enableWorkloadProxy: false
 ---
 kind: ControlPlane
-machines:
-  - 0bf715b4-4a58-4ba9-892e-99d3378cab73
-patches:
-  - idOverride: 400-kevin-control-planes-untaint
-    inline:
-      cluster:
-        allowSchedulingOnControlPlanes: true
+machineClass:
+  name: libvirt-medium
+  size: 1
+systemExtensions:
+  - siderolabs/qemu-guest-agent
 ---
 kind: Workers
----
-kind: Machine
-name: 0bf715b4-4a58-4ba9-892e-99d3378cab73
+machineClass:
+  name: libvirt-small
+  size: 4
+systemExtensions:
+  - siderolabs/qemu-guest-agent
