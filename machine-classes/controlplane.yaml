@@ -1,0 +1,8 @@
+metadata:
+  namespace: default
+  type: MachineClasses.v1alpha1
+  id: controlplane
+spec:
+  matchLabels:
+    - role=controlplane
+    - arch=amd64
