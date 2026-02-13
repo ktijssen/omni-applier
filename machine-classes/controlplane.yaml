@@ -1,6 +1,6 @@
 metadata:
   namespace: default
-  type: MachineClasses.v1alpha1
+  type: MachineClasses.omni.sidero.dev
   id: controlplane
 spec:
   matchLabels:
