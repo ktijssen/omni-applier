@@ -3,6 +3,6 @@ metadata:
   type: MachineClasses.omni.sidero.dev
   id: worker-general
 spec:
-  matchLabels:
-    - role=worker
-    - gpu=false
+  matchlabels:
+    - role = worker
+    - gpu = false

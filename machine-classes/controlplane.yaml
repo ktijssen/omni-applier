@@ -3,6 +3,6 @@ metadata:
   type: MachineClasses.omni.sidero.dev
   id: controlplane
 spec:
-  matchLabels:
-    - role=controlplane
-    - arch=amd64
+  matchlabels:
+    - role = controlplane
+    - arch = amd64
