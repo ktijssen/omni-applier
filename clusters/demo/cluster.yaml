@@ -1,7 +1,5 @@
 kind: Cluster
 name: demo
-annotations:
-  managed-by: omni-applier
 kubernetes:
   version: v1.35.0
 talos:
