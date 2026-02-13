@@ -1,5 +1,5 @@
 kind: Cluster
-name: demo
+name: kevin
 kubernetes:
   version: v1.35.0
 talos:
