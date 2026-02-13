@@ -1,0 +1,18 @@
+kind: Cluster
+name: talos-default
+kubernetes:
+  version: v1.35.0
+talos:
+  version: v1.12.1
+---
+kind: ControlPlane
+machineClass:
+  name: local
+  size: 1
+patches:
+  - idOverride: 400-talos-default-control-planes-untaint
+    inline:
+      cluster:
+        allowSchedulingOnControlPlanes: true
+---
+kind: Workers
