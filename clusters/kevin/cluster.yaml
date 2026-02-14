@@ -6,6 +6,9 @@ talos:
   version: v1.12.3
 features:
   enableWorkloadProxy: false
+kernelArgs:
+  - talos.dashboard.disabled=1
+  - net.ifnames=0
 ---
 kind: ControlPlane
 machineClass:
