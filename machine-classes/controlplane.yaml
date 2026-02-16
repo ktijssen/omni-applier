@@ -6,3 +6,5 @@ spec:
   matchlabels:
     - role = controlplane
     - arch = amd64
+  autoprovision: 
+    provi
