@@ -1,0 +1,20 @@
+kind: Cluster
+name: jorian
+kubernetes:
+  version: v1.35.0
+talos:
+  version: v1.12.1
+---
+kind: ControlPlane
+machines:
+  - c6e44400-acb0-4f29-b388-78adbf6a60bc
+patches:
+  - idOverride: 400-jorian-control-planes-untaint
+    inline:
+      cluster:
+        allowSchedulingOnControlPlanes: true
+---
+kind: Workers
+---
+kind: Machine
+name: c6e44400-acb0-4f29-b388-78adbf6a60bc
