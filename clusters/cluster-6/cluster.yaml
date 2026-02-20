@@ -12,7 +12,7 @@ machineClass:
 systemExtensions:
   - siderolabs/qemu-guest-agent
 ---
-kind: Worker
+kind: Workers
 machineClass:
   name: libvirt-medium
   size: 1
