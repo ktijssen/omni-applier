@@ -8,7 +8,7 @@ talos:
 kind: ControlPlane
 machineClass:
   name: libvirt-medium
-  size: 1
+  size: 3
 systemExtensions:
   - siderolabs/qemu-guest-agent
 ---
