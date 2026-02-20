@@ -1,0 +1,13 @@
+kind: Cluster
+name: cluster-5
+kubernetes:
+  version: v1.35.1
+talos:
+  version: v1.12.3
+---
+kind: ControlPlane
+machineClass:
+  name: libvirt-medium
+  size: 1
+systemExtensions:
+  - siderolabs/qemu-guest-agent
