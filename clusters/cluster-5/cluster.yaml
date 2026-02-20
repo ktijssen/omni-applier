@@ -29,7 +29,7 @@ systemExtensions:
   - siderolabs/qemu-guest-agent
 ---
 kind: Workers
-name: Good
+name: Bad
 machineClass:
   name: libvirt-small
   size: 1
