@@ -3,7 +3,7 @@ name: cluster-5
 kubernetes:
   version: v1.35.1
 talos:
-  version: v1.12.3
+  version: v1.12.4
 ---
 kind: ControlPlane
 machineClass:
