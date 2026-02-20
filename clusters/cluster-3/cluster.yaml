@@ -4,6 +4,8 @@ kubernetes:
   version: v1.35.1
 talos:
   version: v1.12.3
+patches:
+  - file: patches/time.yaml
 ---
 kind: ControlPlane
 machineClass:

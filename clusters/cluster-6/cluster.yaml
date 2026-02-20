@@ -1,5 +1,5 @@
 kind: Cluster
-name: cluster-5
+name: cluster-6
 kubernetes:
   version: v1.35.1
 talos:
