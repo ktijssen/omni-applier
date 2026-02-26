@@ -4,17 +4,15 @@ kubernetes:
   version: v1.35.1
 talos:
   version: v1.12.1
+systemExtensions:
+  - siderolabs/qemu-guest-agent
 ---
 kind: ControlPlane
 machineClass:
   name: libvirt-small
   size: 1
-systemExtensions:
-  - siderolabs/qemu-guest-agent
 ---
 kind: Workers
 machineClass:
   name: libvirt-small
   size: 1
-systemExtensions:
-  - siderolabs/qemu-guest-agent
