@@ -13,6 +13,7 @@ kind: Workers
 machines:
   - 0bf715b4-4a58-4ba9-892e-99d3378cab73
   - f566950e-2efc-42fc-a7b1-25b620002e3d
+  - b00fa895-7b98-4edb-b1ec-dc30698d94b4
 ---
 kind: Machine
 name: 0bf715b4-4a58-4ba9-892e-99d3378cab73
@@ -24,3 +25,6 @@ kind: Machine
 name: f566950e-2efc-42fc-a7b1-25b620002e3d
 systemExtensions:
   - siderolabs/hello-world-service
+---
+kind: Machine
+name: b00fa895-7b98-4edb-b1ec-dc30698d94b4
