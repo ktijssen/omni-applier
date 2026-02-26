@@ -4,5 +4,4 @@ metadata:
   id: worker-gpu
 spec:
   matchlabels:
-    - role = worker
-    - gpu = true
+    - role = worker, gpu = true
