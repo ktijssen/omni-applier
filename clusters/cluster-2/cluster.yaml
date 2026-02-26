@@ -1,0 +1,16 @@
+kind: Cluster
+name: cluster-2
+kubernetes:
+  version: v1.35.1
+talos:
+  version: v1.12.1
+---
+kind: ControlPlane
+machineClass:
+  name: libvirt-medium
+  size: 1
+systemExtensions:
+  - siderolabs/qemu-guest-agent
+  - siderolabs/iscsi-tools
+  - siderolabs/multipath-tools
+  - siderolabs/nvme-cli
