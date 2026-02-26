@@ -6,9 +6,9 @@ spec:
     autoprovision:
         providerid: libvirt
         providerdata: |
-            cores: 2
+            cores: 4
             memory: 8192
-            disk_size: 40
+            disk_size: 60
             storage_pool: omni-infraprovider
             network_interfaces:
               - driver: virtio
