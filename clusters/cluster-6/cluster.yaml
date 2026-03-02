@@ -15,7 +15,7 @@ systemExtensions:
 kind: Workers
 machineClass:
   name: libvirt-small
-  size: 4
+  size: 1
 systemExtensions:
   - siderolabs/qemu-guest-agent
 ---
@@ -23,6 +23,6 @@ kind: Workers
 name: Good-or-Bad
 machineClass:
   name: libvirt-small
-  size: 4
+  size: 1
 systemExtensions:
   - siderolabs/qemu-guest-agent
