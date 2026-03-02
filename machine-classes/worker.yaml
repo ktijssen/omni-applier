@@ -5,4 +5,4 @@ metadata:
 spec:
   matchlabels:
     - role = worker-general
-    - gpu = true
+    - gpu = false
