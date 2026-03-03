@@ -1,8 +1,0 @@
-metadata:
-  namespace: default
-  type: MachineClasses.omni.sidero.dev
-  id: worker-general
-spec:
-  matchlabels:
-    - role = worker-general
-    - gpu = true
