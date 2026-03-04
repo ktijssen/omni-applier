@@ -5,5 +5,5 @@ metadata:
 spec:
   matchlabels:
     - role = controlplane
-    - arch = arm64
+    - arch = amd64
   autoprovision: null
