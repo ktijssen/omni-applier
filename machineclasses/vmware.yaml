@@ -1,7 +1,20 @@
 metadata:
     namespace: default
     type: MachineClasses.omni.sidero.dev
-    id: vmware-manual
+    id: vmware-medium
 spec:
-    matchlabels:
-        - omni.sidero.dev/platform : vmware
+    matchlabels: []
+    autoprovision:
+        providerid: vsphere
+        kernelargs: []
+        metavalues: []
+        providerdata: |
+            cpu: 2
+            memory: 2048
+            disk_size: 20
+            network: VM Network
+            datastore: Synology
+            datacenter: dc
+            resource_pool: /dc/host/cluster
+            template: talos-v1.12.1
+        grpctunnel: 0
