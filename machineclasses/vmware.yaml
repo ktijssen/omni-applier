@@ -4,4 +4,4 @@ metadata:
     id: vmware-manual
 spec:
     matchlabels:
-        - omni.sidero.dev/platform = vmware
+        - omni.sidero.dev/platform : vmware
