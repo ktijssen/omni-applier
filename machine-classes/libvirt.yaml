@@ -15,7 +15,7 @@ spec:
                 network_name: default
 ---
 # metadata:
-#     namespace: default
+#     namespace: defaultStil 
 #     type: MachineClasses.omni.sidero.dev
 #     id: libvirt-medium
 # spec:
