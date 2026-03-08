@@ -1,0 +1,19 @@
+metadata:
+    namespace: default
+    type: MachineClasses.omni.sidero.dev
+    id: libvirt-medium
+spec:
+    matchlabels: []
+    autoprovision:
+        providerid: libvirt
+        kernelargs: []
+        metavalues: []
+        providerdata: |
+            cores: 2
+            memory: 4096
+            disk_size: 40
+            storage_pool: omni-infraprovider
+            network_interfaces:
+              - driver: virtio
+                network_name: default
+        grpctunnel: 0
