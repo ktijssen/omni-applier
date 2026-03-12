@@ -4,6 +4,9 @@ kubernetes:
   version: v1.35.1
 talos:
   version: v1.12.1
+patches:
+  - name: allow-cp
+    file: patches/allow-cp.yaml
 ---
 kind: ControlPlane
 machineClass:
