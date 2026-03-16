@@ -1,5 +1,5 @@
 kind: Cluster
-name: cluster-6
+name: Good-and-Bad
 kubernetes:
   version: v1.35.1
 talos:
@@ -16,6 +16,7 @@ systemExtensions:
   - siderolabs/qemu-guest-agent
 ---
 kind: Workers
+name: Good
 machineClass:
   name: libvirt-small
   size: 1
@@ -23,7 +24,7 @@ systemExtensions:
   - siderolabs/qemu-guest-agent
 ---
 kind: Workers
-name: Good-or-Bad
+name: Bad
 machineClass:
   name: libvirt-small
   size: 1
