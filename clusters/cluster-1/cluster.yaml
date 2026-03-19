@@ -6,8 +6,28 @@ talos:
   version: v1.12.4
 systemExtensions:
   - siderolabs/qemu-guest-agent
+  - siderolabs/util-linux-tools
 ---
 kind: ControlPlane
 machineClass:
   name: libvirt-small
   size: 3
+systemExtensions:
+  - siderolabs/ctr
+---
+kind: Workers
+name: workload
+machineClass:
+  name: libvirt-small
+  size: 1
+systemExtensions:
+  - siderolabs/hello-world-service
+---
+kind: Workers
+name: storage
+machineClass:
+  name: libvirt-small
+  size: 1
+systemExtensions:
+  - siderolabs/nvme-cli
+  - siderolabs/iscsi-tools
