@@ -1,0 +1,175 @@
+kind: Cluster
+name: orion
+kubernetes:
+  version: v1.35.2
+talos:
+  version: v1.12.6
+features:
+  enableWorkloadProxy: true
+patches:
+  - name: cilium
+    inline:
+      cluster:
+        network:
+          cni:
+            name: none
+        proxy:
+          disabled: true
+  - name: nameservers
+    inline:
+      apiVersion: v1alpha1
+      kind: ResolverConfig
+      nameservers:
+        - address: 10.10.1.53
+        - address: 10.10.1.153
+---
+kind: ControlPlane
+machines:
+  - 594fb4c0-2393-44b3-bf42-bb6508e40984
+  - dd72b310-a40c-4cd1-9ee5-989347304227
+  - f404336e-f519-46b7-81b5-02a11ebe7233
+systemExtensions:
+  - siderolabs/qemu-guest-agent
+  - siderolabs/util-linux-tools
+---
+kind: Workers
+machines:
+  - 8a6fa8e8-c267-4382-9d7f-7f4287b06457
+  - 4b7664ba-1c48-4918-b028-e1752eeb8159
+  - f56c645e-c376-449a-af0e-83e25a64869b
+systemExtensions:
+  - siderolabs/iscsi-tools
+  - siderolabs/nfs-utils
+  - siderolabs/qemu-guest-agent
+  - siderolabs/util-linux-tools
+patches:
+  - name: longhorn
+    inline:
+      apiVersion: v1alpha1
+      kind: UserVolumeConfig
+      name: longhorn-data
+      volumeType: partition
+      provisioning:
+        diskSelector:
+          match: disk.transport == "virtio" && disk.size > 100u * GiB
+        maxSize: 100%
+---
+kind: Machine
+name: 594fb4c0-2393-44b3-bf42-bb6508e40984
+patches:
+  - name: hostname
+    inline:
+      apiVersion: v1alpha1
+      auto: "off"
+      hostname: orion-controlplane-01
+      kind: HostnameConfig
+  - name: static-ip
+    inline:
+      apiVersion: v1alpha1
+      kind: LinkConfig
+      name: eth0
+      addresses:
+        - address: 10.10.50.11/24
+      routes:
+        - gateway: 10.10.50.1
+---
+kind: Machine
+name: dd72b310-a40c-4cd1-9ee5-989347304227
+patches:
+  - name: hostname
+    inline:
+      apiVersion: v1alpha1
+      auto: "off"
+      hostname: orion-controlplane-03
+      kind: HostnameConfig
+  - name: static-ip
+    inline:
+      apiVersion: v1alpha1
+      kind: LinkConfig
+      name: eth0
+      addresses:
+        - address: 10.10.50.13/24
+      routes:
+        - gateway: 10.10.50.1
+---
+kind: Machine
+name: f404336e-f519-46b7-81b5-02a11ebe7233
+patches:
+  - name: hostname
+    inline:
+      apiVersion: v1alpha1
+      auto: "off"
+      hostname: orion-controlplane-02
+      kind: HostnameConfig
+  - name: static-ip
+    inline:
+      apiVersion: v1alpha1
+      kind: LinkConfig
+      name: eth0
+      addresses:
+        - address: 10.10.50.12/24
+      routes:
+        - gateway: 10.10.50.1
+---
+kind: Machine
+name: f56c645e-c376-449a-af0e-83e25a64869b
+install:
+  disk: /dev/sda
+patches:
+  - name: hostname
+    inline:
+      apiVersion: v1alpha1
+      auto: "off"
+      hostname: orion-worker-01
+      kind: HostnameConfig
+  - name: static-ip
+    inline:
+      apiVersion: v1alpha1
+      kind: LinkConfig
+      name: eth0
+      addresses:
+        - address: 10.10.50.21/24
+      routes:
+        - gateway: 10.10.50.1
+---
+kind: Machine
+name: 8a6fa8e8-c267-4382-9d7f-7f4287b06457
+install:
+  disk: /dev/sda
+patches:
+  - name: hostname
+    inline:
+      apiVersion: v1alpha1
+      auto: "off"
+      hostname: orion-worker-02
+      kind: HostnameConfig
+  - name: static-ip
+    inline:
+      apiVersion: v1alpha1
+      kind: LinkConfig
+      name: eth0
+      addresses:
+        - address: 10.10.50.22/24
+      routes:
+        - gateway: 10.10.50.1
+---
+kind: Machine
+name: 4b7664ba-1c48-4918-b028-e1752eeb8159
+install:
+  disk: /dev/sda
+patches:
+  - name: hostname
+    inline:
+      apiVersion: v1alpha1
+      auto: "off"
+      hostname: orion-worker-03
+      kind: HostnameConfig
+  - name: static-ip
+    inline:
+      apiVersion: v1alpha1
+      kind: LinkConfig
+      name: eth0
+      addresses:
+        - address: 10.10.50.23/24
+      routes:
+        - gateway: 10.10.50.1
