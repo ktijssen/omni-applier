@@ -11,7 +11,7 @@ systemExtensions:
 kind: ControlPlane
 machineClass:
   name: libvirt-small
-  size: 3
+  size: 1
 systemExtensions:
   - siderolabs/ctr
 ---
